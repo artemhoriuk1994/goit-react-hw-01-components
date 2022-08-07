@@ -1,4 +1,5 @@
 import style from '../Statistics/Statistic.module.css';
+import PropTypes from 'prop-types';
 
 const Statistics = ({ stats, title }) => {
   return (
@@ -25,4 +26,18 @@ function getRandomColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    })
+  ),
+};
+
 export default Statistics;
